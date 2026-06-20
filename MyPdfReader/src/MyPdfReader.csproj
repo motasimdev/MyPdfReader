@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>MyPdfReader</RootNamespace>
+    <AssemblyName>MyPdfReader</AssemblyName>
+    <ApplicationIcon>Assets\App.ico</ApplicationIcon>
+
+    <!-- pdfium.dll ships natively for x64 only, so we pin the platform -->
+    <PlatformTarget>x64</PlatformTarget>
+    <Platforms>x64</Platforms>
+
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- PdfiumViewer.Core is a maintained fork that exposes the native PDFium
+         bindings used by Core/PdfEngine.cs. The native pdfium.dll itself is
+         copied to bin/Release by this package (or can be dropped in manually,
+         see Assets notes in README). -->
+    <PackageReference Include="PdfiumViewer.Core" Version="1.0.3" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\App.ico" />
+    <Resource Include="Assets\icon-open.png" />
+    <Resource Include="Assets\icon-zoom-in.png" />
+    <Resource Include="Assets\icon-next.png" />
+  </ItemGroup>
+
+</Project>
